@@ -8,11 +8,11 @@ export const enum anchor {
 }
 
 // a node to hold the line taught
-export default function TLNode(TLNodeProps:{anchor:anchor, title:String}){
+export default function TLNode(TLNodeProps:{anchor:anchor, title:String, layer:String}){
 
     //set type to anchor for styling
     return (
-        <div className={"Anchor "+TLNodeProps.anchor}>
+        <div className={"Anchor "+TLNodeProps.anchor+" "+TLNodeProps.layer}>
             {TLNodeProps.title}
         </div>
     )

@@ -33,7 +33,8 @@ export default function Timeline(TimelineProps:TimelineProps){
                 <TLTimeline
                     title="Star League \ 2005"
                     endTitle="2780"
-                    lineStyle={{borderColor:"blue", borderWidth:3}}
+                    lineStyle={{borderColor:"blue", borderWidth:10}}
+                    layer="StarLeague"
                     >
 
 <TLEvent

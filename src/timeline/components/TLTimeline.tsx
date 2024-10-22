@@ -12,14 +12,16 @@ export type LineToStyleProps ={
 
 
 // a node to hold the line taught
-export default function TLTimeline(TLTimelineProps:PropsWithChildren<{title:String, endTitle?:String, lineStyle?:LineToStyleProps}>){
+export default function TLTimeline(TLTimelineProps:PropsWithChildren<{title:String, endTitle?:String, layer?:string, lineStyle?:LineToStyleProps}>){
 
+    const TLLayer = TLTimelineProps.layer ?? "1"
     //set type to anchor for styling
     return (
     <>
     <TLNode 
         anchor={anchor.top}
         title={TLTimelineProps.title}
+        layer={TLLayer}
         />
 
         {TLTimelineProps.children}
@@ -27,9 +29,11 @@ export default function TLTimeline(TLTimelineProps:PropsWithChildren<{title:Stri
     <TLNode 
         anchor={anchor.bottom}
         title={TLTimelineProps.endTitle??""}
+        layer={TLLayer}
+
         />
 
-    <LineTo from="Anchor top" to="Anchor bottom"
+    <LineTo from={"Anchor top "+TLLayer} to={"Anchor bottom "+TLLayer}
         delay={1}
         borderColor={TLTimelineProps.lineStyle?.borderColor??'red'}
         borderStyle={TLTimelineProps.lineStyle?.borderStyle??'solid'}
