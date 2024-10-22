@@ -3,11 +3,16 @@ import LineTo from 'react-lineto'
 
 import TLNode,{anchor} from './TLNode'
 
-
+export type LineToStyleProps ={
+    
+    borderColor?:string,
+    borderStyle?:string,
+    borderWidth?:number,
+}
 
 
 // a node to hold the line taught
-export default function TLTimeline(TLTimelineProps:PropsWithChildren<{title:String}>){
+export default function TLTimeline(TLTimelineProps:PropsWithChildren<{title:String, endTitle?:String, lineStyle?:LineToStyleProps}>){
 
     //set type to anchor for styling
     return (
@@ -21,10 +26,15 @@ export default function TLTimeline(TLTimelineProps:PropsWithChildren<{title:Stri
 
     <TLNode 
         anchor={anchor.bottom}
-        title='Line stop'
+        title={TLTimelineProps.endTitle??""}
         />
 
-    <LineTo from="top" to="bottom"/>
+    <LineTo from="Anchor top" to="Anchor bottom"
+        delay={1}
+        borderColor={TLTimelineProps.lineStyle?.borderColor??'red'}
+        borderStyle={TLTimelineProps.lineStyle?.borderStyle??'solid'}
+        borderWidth={TLTimelineProps.lineStyle?.borderWidth??5}
+        />
 
 
     </>

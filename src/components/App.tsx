@@ -11,9 +11,11 @@ function App() {
 
       <Timeline/>
 
+      <hr/>
       <div>resources:</div>
-
-
+      <div>websites used:</div>
+      <div>https://www.sarna.net/wiki/Timeline</div>
+      <div>https://bg.battletech.com/new-to-the-board-game/battletech-eras/</div>
     </div>
   );
 }
