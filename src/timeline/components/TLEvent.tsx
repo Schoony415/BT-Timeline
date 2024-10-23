@@ -8,7 +8,8 @@ export default function TLEvent(TLEventProps:{title:String, body:string}){
     return (
         <div className='TLEvent'>
             {TLEventProps.title}
-            <p>{TLEventProps.body}</p>
+            {/* <p>{TLEventProps.body}</p> */}
+            <div dangerouslySetInnerHTML={{__html: TLEventProps.body}}></div>
         </div>
     )
 
