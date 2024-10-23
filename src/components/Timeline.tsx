@@ -6,7 +6,30 @@ type TimelineProps = {
 
 }
 
+type Event = {year:Number, data:string}
+// type Eras = ["preStarLeague","starLeague","successionWars","clanInvasion","civilWar","jihad","darkAge"]
+// const erasStrings = ["preStarLeague","starLeague","successionWars","clanInvasion","civilWar","jihad","darkAge"]
+// todo use enum?
+enum Eras {preStarLeague,starLeague,successionWars,clanInvasion,civilWar,jihad,darkAge}
+
+
 export default function Timeline(TimelineProps:TimelineProps){
+
+    const Events: Map<Eras, Event[]> = new Map<Eras, Event[]>([
+        [Eras.preStarLeague, [] as Event[]],
+        [Eras.starLeague, [] as Event[]],
+        [Eras.successionWars, [] as Event[]],
+        [Eras.clanInvasion, [] as Event[]],
+        [Eras.civilWar, [] as Event[]],
+        [Eras.jihad, [] as Event[]],
+        [Eras.darkAge, [] as Event[]],
+    ])
+    // Eras.forEach((era)=>{Events.set(era,[])})
+    
+    Events.get(Eras.preStarLeague)!.push({year:1426,data:"Sir Ewen Cameron is born."})
+    Events.get(Eras.preStarLeague)!.push({year:1505,data:"Ewen Cameron of Lochiel becomes a knight."})
+    Events.get(Eras.preStarLeague)!.push({year:1511,data:"Ewen Cameron died."})
+
 
     return (
         <div>
@@ -15,20 +38,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                 endTitle="3600"
                 lineStyle={{borderColor:'black'}}
                 >
-                <TLEvent
-                    title='1426'
-                    body='Sir Ewen Cameron is born.'
-                    />
-
-                <TLEvent
-                    title='1505'
-                    body='Ewen Cameron of Lochiel becomes a knight.'
-                    />
                 
-                <TLEvent
-                    title='1511'
-                    body='Ewen Cameron died.'
-                    />
+                {Events.get(Eras.preStarLeague)!.map(element => (
+                    <TLEvent  title={element.year+""} body={element.data}/>
+                ))}
 
                 <TLTimeline
                     title="Star League \ 2005"
@@ -43,7 +56,6 @@ export default function Timeline(TimelineProps:TimelineProps){
                         />
 
                 </TLTimeline>
-                
 
                 <TLTimeline
                     title="Succession Wars \ 2781"
