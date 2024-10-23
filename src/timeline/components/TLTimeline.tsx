@@ -3,6 +3,8 @@ import LineTo from 'react-lineto'
 
 import TLNode,{anchor} from './TLNode'
 
+import "../styles/TLTimeline.css"
+
 export type LineToStyleProps ={
     
     borderColor?:string,
@@ -34,10 +36,12 @@ export default function TLTimeline(TLTimelineProps:PropsWithChildren<{title:Stri
         />
 
     <LineTo from={"Anchor top "+TLLayer} to={"Anchor bottom "+TLLayer}
+        className={'TimeLineLine '+TLLayer}
         delay={1}
         borderColor={TLTimelineProps.lineStyle?.borderColor??'red'}
         borderStyle={TLTimelineProps.lineStyle?.borderStyle??'solid'}
         borderWidth={TLTimelineProps.lineStyle?.borderWidth??5}
+        zIndex={-1}
         />
 
 
