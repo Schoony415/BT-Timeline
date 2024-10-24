@@ -17,19 +17,28 @@ export default function Timeline(TimelineProps:TimelineProps){
     return (
         <div>
             <TLTimeline
-                title="1400"
-                endTitle="3600"
-                lineStyle={{borderColor:'black'}}
-                >
-                
-                {Events.get(Eras.preStarLeague)!.map(element => (
-                    <TLEvent  title={element.year+""} body={element.data}/>
-                ))}
+                lineStyle={{borderColor:'black', borderWidth:5}}
+            >
+                <TLTimeline
+                    title="Preleague"
+                    startBody="1400"
+                    endBody="3600"
+                    lineStyle={{borderColor:'red', borderWidth:10}}
+                    layer={Eras.preStarLeague}
+                    >
+                    
+                    {Events.get(Eras.preStarLeague)!.map(element => (
+                        <TLEvent  title={element.year+""} body={element.data}/>
+                    ))}
+
+
+                </TLTimeline>
 
                 <TLTimeline
-                    title="Star League \ 2005"
-                    endTitle="2780"
-                    lineStyle={{borderColor:"blue", borderWidth:10}}
+                    title="Star League"
+                    startBody="2005"
+                    endBody="2780"
+                    lineStyle={{borderColor:"gold", borderWidth:10}}
                     layer={Eras.starLeague}
                     >
 
@@ -41,8 +50,9 @@ export default function Timeline(TimelineProps:TimelineProps){
                 </TLTimeline>
 
                 <TLTimeline
-                    title="Succession Wars \ 2781"
-                    endTitle="3049"
+                    title="Succession Wars"
+                    startBody="2781"
+                    endBody="3049"
                     lineStyle={{borderColor:"blue", borderWidth:10}}
                     layer={Eras.successionWars}
                     >
@@ -54,9 +64,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                 </TLTimeline>
                 
                 <TLTimeline
-                    title="Clan Invasion \ 3050"
-                    endTitle="3061"
-                    lineStyle={{borderColor:"blue", borderWidth:10}}
+                    title="Clan Invasion"
+                    startBody="3050"
+                    endBody="3061"
+                    lineStyle={{borderColor:"red", borderWidth:10}}
                     layer={Eras.clanInvasion}
                     >
 
@@ -67,9 +78,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                 </TLTimeline>
                 
                 <TLTimeline
-                    title="Civil War \ 3062"
-                    endTitle="3067"
-                    lineStyle={{borderColor:"blue", borderWidth:10}}
+                    title="Civil War"
+                    startBody="3062"
+                    endBody="3067"
+                    lineStyle={{borderColor:"purple", borderWidth:10}}
                     layer={Eras.civilWar}
                     >
                     
@@ -80,9 +92,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                 </TLTimeline>
                 
                 <TLTimeline
-                    title="Jihad \ 3068"
-                    endTitle="3080"
-                    lineStyle={{borderColor:"blue", borderWidth:10}}
+                    title="Jihad"
+                    startBody="3068"
+                    endBody="3080"
+                    lineStyle={{borderColor:"green", borderWidth:10}}
                     layer={Eras.jihad}
                     >
 
@@ -93,9 +106,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                 </TLTimeline>
                 
                 <TLTimeline
-                    title="Dark Age \ 3081"
+                    title="Dark Age"
+                    startBody="3081"
                     
-                    lineStyle={{borderColor:"blue", borderWidth:10}}
+                    lineStyle={{borderColor:"brown", borderWidth:10}}
                     layer={Eras.darkAge}
                     >
 

@@ -3,6 +3,8 @@ import logo from '../styles/logo.svg';
 import Timeline from './Timeline';
 import '../styles/App.css';
 
+import TestComponent from './testComponent';
+
 function App() {
   return (
     <div className="App">
@@ -11,6 +13,8 @@ function App() {
 
       <Timeline/>
 
+      <hr/>
+      <TestComponent/>
       <hr/>
       <div>resources:</div>
       <div>websites used:</div>

@@ -1,9 +1,22 @@
-import React,{PropsWithChildren} from 'react'
+import React,{useRef, PropsWithChildren, useState, useEffect} from 'react'
+import CSS from 'csstype';
+import useDirectionToScreen from '../hooks/useDirectionToScreen'
 import LineTo from 'react-lineto'
 
 import TLNode,{anchor} from './TLNode'
 
 import "../styles/TLTimeline.css"
+
+// LineTo Reference
+// https://github.com/kdeloach/react-lineto
+
+type TLTimelinePropsType = {
+    title?:String,
+    startBody?:String,
+    endBody?:String,
+    layer?:string,
+    lineStyle?:LineToStyleProps
+}
 
 export type LineToStyleProps ={
     
@@ -12,9 +25,20 @@ export type LineToStyleProps ={
     borderWidth?:number,
 }
 
+const stickyStyle: CSS.Properties = {
+    "position": "sticky",
+    "top": "0",
+    "zIndex": "999",
+}
 
 // a node to hold the line taught
-export default function TLTimeline(TLTimelineProps:PropsWithChildren<{title:String, endTitle?:String, layer?:string, lineStyle?:LineToStyleProps}>){
+export default function TLTimeline(TLTimelineProps:PropsWithChildren<TLTimelinePropsType>){
+
+    const elementRef = useRef<HTMLDivElement>(null);
+    const isOnScreen = useDirectionToScreen(elementRef);
+    
+
+    console.log({isOnScreen});
 
     const TLLayer = TLTimelineProps.layer ?? "1"
     //set type to anchor for styling
@@ -22,17 +46,21 @@ export default function TLTimeline(TLTimelineProps:PropsWithChildren<{title:Stri
     <>
     <TLNode 
         anchor={anchor.top}
-        title={TLTimelineProps.title}
+        title={TLTimelineProps.title??""}
         layer={TLLayer}
+        body={TLTimelineProps.startBody}
+        style={isOnScreen!=="ABOVE"?stickyStyle:{}}
         />
 
         {TLTimelineProps.children}
 
+        {/* Anchor AnchorHeader anchor.bottom TLLayer */}
     <TLNode 
         anchor={anchor.bottom}
-        title={TLTimelineProps.endTitle??""}
+        title={""}
         layer={TLLayer}
-
+        body={TLTimelineProps.endBody}
+        forwardRef={elementRef}
         />
 
     <LineTo from={"Anchor top "+TLLayer} to={"Anchor bottom "+TLLayer}

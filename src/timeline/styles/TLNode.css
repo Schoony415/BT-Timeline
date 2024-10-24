@@ -2,3 +2,7 @@
     outline: black 1px solid;
     background-color: rgba(255,255,255,.5);
 }
+
+.AnchorHeader {
+    text-transform: uppercase;
+}
