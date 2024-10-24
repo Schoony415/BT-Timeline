@@ -1,7 +1,7 @@
 .sidebar {
     background-color:cyan;
     border:solid black 1px;
-    
+    padding: .25rem;
 }
 
 .sidebarButton { 
