@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       
-      <div>BattleTech timeline</div>
+      <h1>BattleTech timeline</h1>
 
       <Timeline/>
 

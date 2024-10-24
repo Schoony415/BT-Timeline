@@ -4,6 +4,7 @@ import useDirectionToScreen from '../hooks/useDirectionToScreen'
 import LineTo from 'react-lineto'
 
 import TLNode,{anchor} from './TLNode'
+import ClassNameConstructor from '../helper/ClassNameConstructor';
 
 import "../styles/TLTimeline.css"
 
@@ -11,9 +12,9 @@ import "../styles/TLTimeline.css"
 // https://github.com/kdeloach/react-lineto
 
 type TLTimelinePropsType = {
-    title?:String,
-    startBody?:String,
-    endBody?:String,
+    title?:string,
+    startBody?:string,
+    endBody?:string,
     layer?:string,
     lineStyle?:LineToStyleProps
 }
@@ -63,7 +64,9 @@ export default function TLTimeline(TLTimelineProps:PropsWithChildren<TLTimelineP
         forwardRef={elementRef}
         />
 
-    <LineTo from={"Anchor top "+TLLayer} to={"Anchor bottom "+TLLayer}
+    <LineTo 
+        from={ClassNameConstructor(["Anchor",anchor.top,TLLayer])}
+        to={ClassNameConstructor(["Anchor",anchor.bottom,TLLayer])}
         className={'TimeLineLine '+TLLayer}
         delay={1}
         borderColor={TLTimelineProps.lineStyle?.borderColor??'red'}

@@ -22,7 +22,7 @@ export default function Timeline(TimelineProps:TimelineProps){
                 <TLTimeline
                     title="Preleague"
                     startBody="1400"
-                    endBody="3600"
+                    endBody="2004"
                     lineStyle={{borderColor:'red', borderWidth:10}}
                     layer={Eras.preStarLeague}
                     >
@@ -30,7 +30,6 @@ export default function Timeline(TimelineProps:TimelineProps){
                     {Events.get(Eras.preStarLeague)!.map(element => (
                         <TLEvent  title={element.year+""} body={element.data}/>
                     ))}
-
 
                 </TLTimeline>
 
@@ -41,7 +40,6 @@ export default function Timeline(TimelineProps:TimelineProps){
                     lineStyle={{borderColor:"gold", borderWidth:10}}
                     layer={Eras.starLeague}
                     >
-
                 
                     {Events.get(Eras.starLeague)!.map(element => (
                         <TLEvent  title={element.year+""} body={element.data}/>
