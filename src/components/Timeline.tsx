@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
+
 import TLTimeline from '../timeline/components/TLTimeline';
 import TLEvent from '../timeline/components/TLEvent';
 import { createEventMap, Eras, Event, fillEventMap } from './Types';
+import { optionsType } from '../timeline/components/Options';
 
 type TimelineProps = {
-
+    options: optionsType
 }
-
 
 export default function Timeline(TimelineProps:TimelineProps){
 
@@ -27,7 +28,7 @@ export default function Timeline(TimelineProps:TimelineProps){
                     layer={Eras.preStarLeague}
                     >
                     
-                    {Events.get(Eras.preStarLeague)!.map(element => (
+                    {TimelineProps.options.EventsToDisplay==="ALL" && Events.get(Eras.preStarLeague)!.map(element => (
                         <TLEvent  title={element.year+""} body={element.data}/>
                     ))}
 
@@ -41,7 +42,7 @@ export default function Timeline(TimelineProps:TimelineProps){
                     layer={Eras.starLeague}
                     >
                 
-                    {Events.get(Eras.starLeague)!.map(element => (
+                    {TimelineProps.options.EventsToDisplay==="ALL" && Events.get(Eras.starLeague)!.map(element => (
                         <TLEvent  title={element.year+""} body={element.data}/>
                     ))}
 
@@ -55,7 +56,7 @@ export default function Timeline(TimelineProps:TimelineProps){
                     layer={Eras.successionWars}
                     >
 
-                    {Events.get(Eras.successionWars)!.map(element => (
+                    {TimelineProps.options.EventsToDisplay==="ALL" && Events.get(Eras.successionWars)!.map(element => (
                         <TLEvent  title={element.year+""} body={element.data}/>
                     ))}
 
@@ -69,7 +70,7 @@ export default function Timeline(TimelineProps:TimelineProps){
                     layer={Eras.clanInvasion}
                     >
 
-                    {Events.get(Eras.clanInvasion)!.map(element => (
+                    {TimelineProps.options.EventsToDisplay==="ALL" && Events.get(Eras.clanInvasion)!.map(element => (
                         <TLEvent  title={element.year+""} body={element.data}/>
                     ))}
 
@@ -83,7 +84,7 @@ export default function Timeline(TimelineProps:TimelineProps){
                     layer={Eras.civilWar}
                     >
                     
-                    {Events.get(Eras.civilWar)!.map(element => (
+                    {TimelineProps.options.EventsToDisplay==="ALL" && Events.get(Eras.civilWar)!.map(element => (
                         <TLEvent  title={element.year+""} body={element.data}/>
                     ))}
 
@@ -97,7 +98,7 @@ export default function Timeline(TimelineProps:TimelineProps){
                     layer={Eras.jihad}
                     >
 
-                    {Events.get(Eras.jihad)!.map(element => (
+                    {TimelineProps.options.EventsToDisplay==="ALL" && Events.get(Eras.jihad)!.map(element => (
                         <TLEvent  title={element.year+""} body={element.data}/>
                     ))}
 
@@ -111,7 +112,7 @@ export default function Timeline(TimelineProps:TimelineProps){
                     layer={Eras.darkAge}
                     >
 
-                    {Events.get(Eras.darkAge)!.map(element => (
+                    {TimelineProps.options.EventsToDisplay==="ALL" && Events.get(Eras.darkAge)!.map(element => (
                         <TLEvent  title={element.year+""} body={element.data}/>
                     ))}
 

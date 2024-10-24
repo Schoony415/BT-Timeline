@@ -1,17 +1,31 @@
-import React from 'react';
-import logo from '../styles/logo.svg';
+import React, { ChangeEventHandler, useState} from 'react';
+
 import Timeline from './Timeline';
+import TestComponent from './testComponent';
+import Options, {optionsType, EventsOptions} from '../timeline/components/Options';
+
 import '../styles/App.css';
 
-import TestComponent from './testComponent';
-
 function App() {
+  const [options, setOptions] = useState<optionsType>({EventsToDisplay:EventsOptions.all})
+
+  const setEventsToDisplay:ChangeEventHandler<HTMLInputElement> = (e:any) => {
+    setOptions({...options, EventsToDisplay:e.target.value})
+  }
+
   return (
     <div className="App">
       
       <h1>BattleTech timeline</h1>
 
-      <Timeline/>
+      <Options
+        EventsToDisplay={options.EventsToDisplay}
+        setEventsToDisplay={setEventsToDisplay}
+      />
+
+      <Timeline
+        options={options}
+      />
 
       {/* <hr/>
       <TestComponent/> */}
@@ -20,6 +34,7 @@ function App() {
       <div>websites used:</div>
       <div>https://www.sarna.net/wiki/Timeline</div>
       <div>https://bg.battletech.com/new-to-the-board-game/battletech-eras/</div>
+      <div>https://mwo.fandom.com/wiki/Timeline</div>
     </div>
   );
 }

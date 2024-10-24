@@ -30,6 +30,7 @@ const stickyStyle: CSS.Properties = {
     "position": "sticky",
     "top": "0",
     "zIndex": "999",
+    "backgroundColor":"white"
 }
 
 // a node to hold the line taught
@@ -39,7 +40,7 @@ export default function TLTimeline(TLTimelineProps:PropsWithChildren<TLTimelineP
     const isOnScreen = useDirectionToScreen(elementRef);
     
 
-    console.log({isOnScreen});
+    // console.log({isOnScreen});
 
     const TLLayer = TLTimelineProps.layer ?? "1"
     //set type to anchor for styling
