@@ -5,6 +5,7 @@ import TestComponent from './testComponent';
 import Options, {optionsType, EventsOptions} from '../timeline/components/Options';
 
 import '../styles/App.css';
+import Sidebar from './Sidebar';
 
 function App() {
   const [options, setOptions] = useState<optionsType>({EventsToDisplay:EventsOptions.all})
@@ -21,12 +22,14 @@ function App() {
       
       <h1>BattleTech timeline</h1>
 
+      <Sidebar>
       <Options
         EventsToDisplay={options.EventsToDisplay}
         setEventsToDisplay={setEventsToDisplay}
         toggleAccordians={toggleAccordians}
       />
-
+      </Sidebar>
+      
       <Timeline
         options={options}
         accordiansExpanded={accordiansExpanded}
