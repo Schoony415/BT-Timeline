@@ -7,11 +7,11 @@ export default function Sidebar(SidebarProps:PropsWithChildren<{}>){
 
     const toggleIsOpen = () => {setIsOpen(!isOpen)}
 
-    return (<>
+    return (<div className='sidebarContainer'>
         <div className="sidebar sidebarButton" onClick={toggleIsOpen}>Opt</div>
         
         {isOpen&&
-        <div className='sidebar sidebarContainer'>
+        <div className='sidebar sidebarMenu'>
 
             {SidebarProps.children}
 
@@ -21,5 +21,5 @@ export default function Sidebar(SidebarProps:PropsWithChildren<{}>){
 
     
 
-    </>)
+    </div>)
 }

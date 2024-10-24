@@ -29,7 +29,7 @@ export type LineToStyleProps ={
 const stickyStyle: CSS.Properties = {
     "position": "sticky",
     "top": "0",
-    "zIndex": "999",
+    "zIndex": "99",
     "backgroundColor":"white"
 }
 
