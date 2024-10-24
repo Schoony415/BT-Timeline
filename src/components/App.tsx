@@ -13,8 +13,8 @@ function App() {
 
       <Timeline/>
 
-      <hr/>
-      <TestComponent/>
+      {/* <hr/>
+      <TestComponent/> */}
       <hr/>
       <div>resources:</div>
       <div>websites used:</div>
