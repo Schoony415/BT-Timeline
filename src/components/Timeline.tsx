@@ -6,7 +6,8 @@ import { createEventMap, Eras, Event, EventsSource, fillEventMap } from './Types
 import { optionsType } from '../timeline/components/Options';
 
 type TimelineProps = {
-    options: optionsType
+    options: optionsType;
+    accordiansExpanded: boolean;
 }
 
 export default function Timeline(TimelineProps:TimelineProps){
@@ -29,10 +30,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                     >
                     
                     {TimelineProps.options.EventsToDisplay==="ALL" && SarnaEvents.get(Eras.preStarLeague)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
                     {TimelineProps.options.EventsToDisplay==="MAJOR" && MWOEvents.get(Eras.preStarLeague)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
 
                 </TLTimeline>
@@ -46,10 +47,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                     >
                 
                     {TimelineProps.options.EventsToDisplay==="ALL" && SarnaEvents.get(Eras.starLeague)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
                     {TimelineProps.options.EventsToDisplay==="MAJOR" && MWOEvents.get(Eras.starLeague)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
 
                 </TLTimeline>
@@ -63,10 +64,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                     >
 
                     {TimelineProps.options.EventsToDisplay==="ALL" && SarnaEvents.get(Eras.successionWars)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
                     {TimelineProps.options.EventsToDisplay==="MAJOR" && MWOEvents.get(Eras.successionWars)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
 
                 </TLTimeline>
@@ -80,10 +81,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                     >
 
                     {TimelineProps.options.EventsToDisplay==="ALL" && SarnaEvents.get(Eras.clanInvasion)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
                     {TimelineProps.options.EventsToDisplay==="MAJOR" && MWOEvents.get(Eras.clanInvasion)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
 
                 </TLTimeline>
@@ -97,10 +98,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                     >
                     
                     {TimelineProps.options.EventsToDisplay==="ALL" && SarnaEvents.get(Eras.civilWar)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
                     {TimelineProps.options.EventsToDisplay==="MAJOR" && MWOEvents.get(Eras.civilWar)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
 
                 </TLTimeline>
@@ -114,10 +115,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                     >
 
                     {TimelineProps.options.EventsToDisplay==="ALL" && SarnaEvents.get(Eras.jihad)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
                     {TimelineProps.options.EventsToDisplay==="MAJOR" && MWOEvents.get(Eras.jihad)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
 
                 </TLTimeline>
@@ -131,10 +132,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                     >
 
                     {TimelineProps.options.EventsToDisplay==="ALL" && SarnaEvents.get(Eras.darkAge)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
                     {TimelineProps.options.EventsToDisplay==="MAJOR" && MWOEvents.get(Eras.darkAge)!.map(element => (
-                        <TLEvent  title={element.year+""} body={element.data}/>
+                        <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
 
                 </TLTimeline>

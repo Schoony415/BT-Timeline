@@ -8,10 +8,13 @@ import '../styles/App.css';
 
 function App() {
   const [options, setOptions] = useState<optionsType>({EventsToDisplay:EventsOptions.all})
+  const [accordiansExpanded, setAccordiansExpanded] = useState(false);
 
   const setEventsToDisplay:ChangeEventHandler<HTMLInputElement> = (e:any) => {
     setOptions({...options, EventsToDisplay:e.target.value})
   }
+
+  const toggleAccordians = ()=>{console.log("flip");setAccordiansExpanded(!accordiansExpanded)}
 
   return (
     <div className="App">
@@ -21,10 +24,12 @@ function App() {
       <Options
         EventsToDisplay={options.EventsToDisplay}
         setEventsToDisplay={setEventsToDisplay}
+        toggleAccordians={toggleAccordians}
       />
 
       <Timeline
         options={options}
+        accordiansExpanded={accordiansExpanded}
       />
 
       {/* <hr/>
