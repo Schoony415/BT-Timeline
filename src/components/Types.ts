@@ -45,6 +45,10 @@ const fixHREFtoSarna = (text:string) => {
     return text.replaceAll("href=\"", "href=\"https://www.sarna.net")
 }
 
+const fixHREFtoMWO = (text:string) => {
+    return text.replaceAll("href=\"", "href=\"https://mwo.fandom.com")
+}
+
 export const enum EventsSource {Sarna, MWO}
 
 function fillEventMap(source:EventsSource|null):Map<Eras, Event[]>{
@@ -69,7 +73,7 @@ function fillEventMap(source:EventsSource|null):Map<Eras, Event[]>{
                     return (e.year >= er.range[0] && e.year <= er.range[1])
                 })[0].key
         
-                Events.get(era)!.push({year:e.year, data: e.data})
+                Events.get(era)!.push({year:e.year, data: fixHREFtoMWO(e.data)})
             })
             break;
         }

@@ -9,7 +9,6 @@ export default function TLEvent(TLEventProps:{title:String, body:string, expand?
     const toggleShowBody = () => {setShowBody(!showBody)}
 
     useEffect(()=>{
-        console.log("useEffect",TLEventProps.expand)
         setShowBody(TLEventProps.expand?true:false)
     },[TLEventProps.expand])
 
