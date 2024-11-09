@@ -46,6 +46,12 @@ export default function TLTimeline(TLTimelineProps:PropsWithChildren<TLTimelineP
     //set type to anchor for styling
     return (
     <>
+    {/* todo make the line nodes seperate from headers completely */}
+    {/* todo make "epics" that are mini timelines that will have stick properties to thier headers */}
+    {/* todo allow epics to overlap */}
+    {/* todo create "spans" that are smaller than epics, dont let them be sticky */}
+    {/* todo impliment sorting of children */}
+    
     <TLNode 
         anchor={anchor.top}
         title={TLTimelineProps.title??""}
