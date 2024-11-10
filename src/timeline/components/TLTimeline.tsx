@@ -1,12 +1,12 @@
 import React,{useRef, PropsWithChildren, useState, useEffect} from 'react'
-import CSS from 'csstype';
 import useDirectionToScreen from '../hooks/useDirectionToScreen'
 import LineTo from 'react-lineto'
 
-import TLNode,{anchor} from './TLNode'
+import TLNode from './TLNode';
 import TLLine from './TLLine';
-import TLEvent from './TLEvent'
+import TLEvent from './TLEvent';
 import ClassNameConstructor from '../helper/ClassNameConstructor';
+import { TLChild, LineToStyleProps, stickyStyle, anchor} from '../types/types';
 
 import "../styles/TLTimeline.css"
 
@@ -23,32 +23,6 @@ type TLTimelinePropsType = {
     startTime: number,
     endTime: number,
     items:  TLChild[] | undefined ,
-}
-
-export type TLChild = {
-    type:"epic"|"span",
-    time:number, 
-    timeEnd:number, 
-    title:string
-} | {
-    type: "event",
-    time:number,
-    title?: string,
-    body: string,
-}
-
-export type LineToStyleProps ={
-    
-    borderColor?:string,
-    borderStyle?:string,
-    borderWidth?:number,
-}
-
-const stickyStyle: CSS.Properties = {
-    "position": "sticky",
-    "top": "0",
-    "zIndex": "99",
-    "backgroundColor":"white"
 }
 
 // a node to hold the line taught
@@ -83,7 +57,8 @@ export default function TLTimeline(TLTimelineProps:TLTimelinePropsType){
             ?( <TLEvent title={item.title??""} body={item.body} />)
             :(item.type==="epic")
             ?( TLLine(item) )
-            
+            :(item.type==="span")
+            ?( <div>NOTIMPLIMENTEDYET</div>)
             :""
         ))}
 

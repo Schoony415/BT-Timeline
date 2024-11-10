@@ -2,14 +2,11 @@ import React, {RefObject} from 'react'
 import CSS from 'csstype';
 
 import ClassNameConstructor from '../helper/ClassNameConstructor';
+import { anchor } from '../types/types';
 
 import '../styles/TLNode.css'
 
 
-export const enum anchor {
-    top='top',
-    bottom='bottom',
-}
 
 type TLNodePropsType = {
     forwardRef?:RefObject<HTMLDivElement>,

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 
-import TLTimeline, { TLChild } from '../timeline/components/TLTimeline';
+import TLTimeline from '../timeline/components/TLTimeline';
 import TLEvent from '../timeline/components/TLEvent';
+import { TLChild } from '../timeline/types/types';
 import { createEventMap, Eras, Event, EventsSource, fillEventMap } from './Types';
 import { optionsType } from '../timeline/components/Options';
 

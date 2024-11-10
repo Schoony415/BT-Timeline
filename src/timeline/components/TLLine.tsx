@@ -1,9 +1,9 @@
 import React from 'react'
 import LineTo from 'react-lineto'
 
-import TLNode, {anchor} from './TLNode'
+import TLNode from './TLNode'
 import ClassNameConstructor from '../helper/ClassNameConstructor';
-import { jsx } from 'react/jsx-runtime';
+import { anchor } from '../types/types';
 
 
 export default function TLLine(TLLineProps:{title:string, time:number, timeEnd:number}):JSX.Element[]{
