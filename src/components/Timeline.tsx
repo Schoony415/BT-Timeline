@@ -28,7 +28,7 @@ export default function Timeline(TimelineProps:TimelineProps){
                 items= {TimelineProps.options.EventsToDisplay==="ALL" ?
                     SarnaEvents.get(Eras.preStarLeague)!.map(element => (
                     { type:"event", title:element.year+"", body:element.data, time:element.year } as TLChild
-                    ))
+                    )).concat([{type:"epic", title:"testepic", time:1940, timeEnd:1990} as TLChild])
                 :undefined}
             />
 

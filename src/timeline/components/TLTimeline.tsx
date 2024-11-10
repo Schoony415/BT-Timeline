@@ -4,6 +4,8 @@ import useDirectionToScreen from '../hooks/useDirectionToScreen'
 import LineTo from 'react-lineto'
 
 import TLNode,{anchor} from './TLNode'
+import TLLine from './TLLine';
+import TLEvent from './TLEvent'
 import ClassNameConstructor from '../helper/ClassNameConstructor';
 
 import "../styles/TLTimeline.css"
@@ -77,7 +79,12 @@ export default function TLTimeline(TLTimelineProps:TLTimelinePropsType){
         />
 
         {TLTimelineProps.items&&TLTimelineProps.items.map(item=>(
-            (item.type==="event")?( <div>{item.title}</div>):""
+            (item.type==="event")
+            ?( <TLEvent title={item.title??""} body={item.body} />)
+            :(item.type==="epic")
+            ?( TLLine(item) )
+            
+            :""
         ))}
 
         {/* Anchor AnchorHeader anchor.bottom TLLayer */}
