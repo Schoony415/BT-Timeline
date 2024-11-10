@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import TLTimeline from '../timeline/components/TLTimeline';
+import TLTimeline, { TLChild } from '../timeline/components/TLTimeline';
 import TLEvent from '../timeline/components/TLEvent';
 import { createEventMap, Eras, Event, EventsSource, fillEventMap } from './Types';
 import { optionsType } from '../timeline/components/Options';
@@ -19,9 +19,22 @@ export default function Timeline(TimelineProps:TimelineProps){
     return (
         <div>
             <TLTimeline
+
                 lineStyle={{borderColor:'black', borderWidth:5}}
-            >
-                <TLTimeline
+            
+                startTime={100}
+                endTime={5000}
+            
+                items= {TimelineProps.options.EventsToDisplay==="ALL" ?
+                    SarnaEvents.get(Eras.preStarLeague)!.map(element => (
+                    { type:"event", title:element.year+"", body:element.data, time:element.year } as TLChild
+                    ))
+                :undefined}
+            />
+
+
+
+                {/* <TLTimeline
                     title="Preleague"
                     startBody="1400"
                     endBody="2004"
@@ -138,10 +151,10 @@ export default function Timeline(TimelineProps:TimelineProps){
                         <TLEvent  title={element.year+""} body={element.data} expand={TimelineProps.accordiansExpanded}/>
                     ))}
 
-                </TLTimeline>
+                </TLTimeline> */}
                 
-
-            </TLTimeline>
+{/* 
+            </TLTimeline> */}
         </div>
     )
 }

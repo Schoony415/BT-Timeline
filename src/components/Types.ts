@@ -1,4 +1,4 @@
-import SarnaEventList from  "../data/SarnaReference.json" ;
+import SarnaEventList from  "../data/SarnaReference_test.json" ;
 import MWOEventList from  "../data/MWOReference.json" ;
 
 

@@ -16,7 +16,23 @@ type TLTimelinePropsType = {
     startBody?:string,
     endBody?:string,
     layer?:string,
-    lineStyle?:LineToStyleProps
+    lineStyle?:LineToStyleProps,
+
+    startTime: number,
+    endTime: number,
+    items:  TLChild[] | undefined ,
+}
+
+export type TLChild = {
+    type:"epic"|"span",
+    time:number, 
+    timeEnd:number, 
+    title:string
+} | {
+    type: "event",
+    time:number,
+    title?: string,
+    body: string,
 }
 
 export type LineToStyleProps ={
@@ -34,7 +50,7 @@ const stickyStyle: CSS.Properties = {
 }
 
 // a node to hold the line taught
-export default function TLTimeline(TLTimelineProps:PropsWithChildren<TLTimelinePropsType>){
+export default function TLTimeline(TLTimelineProps:TLTimelinePropsType){
 
     const elementRef = useRef<HTMLDivElement>(null);
     const isOnScreen = useDirectionToScreen(elementRef);
@@ -51,7 +67,7 @@ export default function TLTimeline(TLTimelineProps:PropsWithChildren<TLTimelineP
     {/* todo allow epics to overlap */}
     {/* todo create "spans" that are smaller than epics, dont let them be sticky */}
     {/* todo impliment sorting of children */}
-    
+
     <TLNode 
         anchor={anchor.top}
         title={TLTimelineProps.title??""}
@@ -60,7 +76,9 @@ export default function TLTimeline(TLTimelineProps:PropsWithChildren<TLTimelineP
         style={isOnScreen!=="ABOVE"?stickyStyle:{}}
         />
 
-        {TLTimelineProps.children}
+        {TLTimelineProps.items&&TLTimelineProps.items.map(item=>(
+            (item.type==="event")?( <div>{item.title}</div>):""
+        ))}
 
         {/* Anchor AnchorHeader anchor.bottom TLLayer */}
     <TLNode 
