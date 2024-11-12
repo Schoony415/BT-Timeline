@@ -2,8 +2,8 @@ import CSS from 'csstype';
 
 export type TLChild = {
     type:"epic"|"span",
-    time:number, 
-    timeEnd:number, 
+    startTime:number, 
+    endTime:number, 
     title:string
 } | {
     type: "event",
@@ -17,6 +17,10 @@ export type LineToStyleProps ={
     borderColor?:string,
     borderStyle?:string,
     borderWidth?:number,
+}
+
+export type TLChildDiv = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
+    time:number;
 }
 
 export const stickyStyle: CSS.Properties = {

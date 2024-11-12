@@ -22,7 +22,7 @@ type TLTimelinePropsType = {
 
     startTime: number,
     endTime: number,
-    items:  TLChild[] | undefined ,
+    items:  TLChild[]  ,
 }
 
 // a node to hold the line taught
@@ -50,17 +50,21 @@ export default function TLTimeline(TLTimelineProps:TLTimelinePropsType){
         layer={TLLayer}
         body={TLTimelineProps.startBody}
         style={isOnScreen!=="ABOVE"?stickyStyle:{}}
+        time={TLTimelineProps.startTime}
         />
 
-        {TLTimelineProps.items&&TLTimelineProps.items.map(item=>(
-            (item.type==="event")
-            ?( <TLEvent title={item.title??""} body={item.body} />)
-            :(item.type==="epic")
-            ?( TLLine(item) )
-            :(item.type==="span")
-            ?( <div>NOTIMPLIMENTEDYET</div>)
-            :""
-        ))}
+        {TLTimelineProps.items.map(item=>(
+                (item.type==="event")
+                ?( <TLEvent title={item.title??""} body={item.body} time={item.time}/>)
+                :(item.type==="epic")
+                ?(TLLine(item))
+                :(item.type==="span")
+                ?( <div>NOTIMPLIMENTEDYET</div>)
+                :( <div>NOTIMPLIMENTEDYET</div>)
+            ))
+            .flat(1)
+            .sort((a,b)=>(+a.props.time - +b.props.time))
+        }
 
         {/* Anchor AnchorHeader anchor.bottom TLLayer */}
     <TLNode 
@@ -69,6 +73,8 @@ export default function TLTimeline(TLTimelineProps:TLTimelinePropsType){
         layer={TLLayer}
         body={TLTimelineProps.endBody}
         forwardRef={elementRef}
+        time={TLTimelineProps.endTime}
+
         />
 
     <LineTo 
@@ -79,7 +85,7 @@ export default function TLTimeline(TLTimelineProps:TLTimelinePropsType){
         borderColor={TLTimelineProps.lineStyle?.borderColor??'red'}
         borderStyle={TLTimelineProps.lineStyle?.borderStyle??'solid'}
         borderWidth={TLTimelineProps.lineStyle?.borderWidth??5}
-        zIndex={-1}
+        zIndex={-99}
         />
 
 
