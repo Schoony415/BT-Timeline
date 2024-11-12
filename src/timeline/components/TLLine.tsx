@@ -6,13 +6,13 @@ import ClassNameConstructor from '../helper/ClassNameConstructor';
 import { anchor, LineProps } from '../types/types';
 
 
-export default function TLLine(TLLineProps:LineProps):JSX.Element[]{
-
+export default function TLLine(TLLineProps:{type:"epic"|"span"}&LineProps):JSX.Element[]{
+// todo debug lineto not working and open issue
     let createLine = ()=>{return (<LineTo 
         from={ClassNameConstructor(["Anchor",anchor.top,TLLineProps.title??""])}
         to={ClassNameConstructor(["Anchor",anchor.bottom,TLLineProps.title??""])}
         className={'TimeLineLine '}
-        delay={1}
+        delay={0}
         borderColor={TLLineProps.lineStyle?.borderColor??'red'}
         borderStyle={TLLineProps.lineStyle?.borderStyle??'solid'}
         borderWidth={TLLineProps.lineStyle?.borderWidth??5}

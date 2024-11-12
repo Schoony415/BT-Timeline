@@ -59,6 +59,7 @@ export default function TLTimeline(TLTimelineProps:TLTimelinePropsType){
             ))
             .flat(1)
             .sort((a,b)=>(+a.props.time - +b.props.time))
+            
         }
 
         {/* Anchor AnchorHeader anchor.bottom TLLayer */}
@@ -76,7 +77,7 @@ export default function TLTimeline(TLTimelineProps:TLTimelinePropsType){
         from={ClassNameConstructor(["Anchor",anchor.top,TLLayer])}
         to={ClassNameConstructor(["Anchor",anchor.bottom,TLLayer])}
         className={'TimeLineLine '+TLLayer}
-        delay={1}
+        delay={0}
         borderColor={TLTimelineProps.lineStyle?.borderColor??'red'}
         borderStyle={TLTimelineProps.lineStyle?.borderStyle??'solid'}
         borderWidth={TLTimelineProps.lineStyle?.borderWidth??5}
