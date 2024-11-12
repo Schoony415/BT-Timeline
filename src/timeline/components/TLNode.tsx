@@ -27,7 +27,11 @@ export default function TLNode(TLNodeProps:TLNodePropsType){
     //set type to anchor for styling
     return (
     // <div time={TLNodeProps.time} className='collector'>
-        <div className={ClassNameConstructor(["Anchor",TLNodeProps.anchor,TLNodeProps.layer])} time={TLNodeProps.time}>
+        <div
+            className={ClassNameConstructor(["Anchor",TLNodeProps.anchor,TLNodeProps.layer])}
+            key={ClassNameConstructor(["Anchor",TLNodeProps.anchor,TLNodeProps.layer])}
+            time={TLNodeProps.time}
+        >
         {TLNodeProps.title.length>0&&
         <h3
             className={ClassNameConstructor(["Anchor","AnchorHeader"])}

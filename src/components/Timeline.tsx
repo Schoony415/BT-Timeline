@@ -46,7 +46,7 @@ export default function Timeline(TimelineProps:TimelineProps){
                 MWOEvents.get(Eras.starLeague)!.map(element => (
                     { type:"event", title:element.year+"", body:element.data, time:element.year } as TLChild
                     )).concat(
-                        [{type:"epic", title:"2100 to 2300", startTime:2100, endTime:2300, lineStyle:{borderColor:"blue"}} as TLChild]
+                        [{type:"epic", title:"2100 to 2300", startTime:2100, endTime:2300, lineStyle:{borderColor:"blue"}, layer:"epicTest"} as TLChild]
                     // epics
                     )
                 :[UndefinedTLChild]}
