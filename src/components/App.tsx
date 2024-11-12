@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       
-      <h1>BattleTech timeline</h1>
+      <h1>BattleTech Timeline</h1>
 
       <Sidebar>
       <Options
