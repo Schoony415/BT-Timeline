@@ -6,7 +6,7 @@ import TLNode from './TLNode';
 import TLLine from './TLLine';
 import TLEvent from './TLEvent';
 import ClassNameConstructor from '../helper/ClassNameConstructor';
-import { TLChild, LineToStyleProps, stickyStyle, anchor} from '../types/types';
+import { TLChild, LineToStyleProps, stickyStyle, anchor, LineProps} from '../types/types';
 
 import "../styles/TLTimeline.css"
 
@@ -14,16 +14,11 @@ import "../styles/TLTimeline.css"
 // https://github.com/kdeloach/react-lineto
 
 type TLTimelinePropsType = {
-    title?:string,
     startBody?:string,
     endBody?:string,
-    layer?:string,
-    lineStyle?:LineToStyleProps,
 
-    startTime: number,
-    endTime: number,
     items:  TLChild[]  ,
-}
+} & LineProps
 
 // a node to hold the line taught
 export default function TLTimeline(TLTimelineProps:TLTimelinePropsType){
